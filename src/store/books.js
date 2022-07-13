@@ -1,16 +1,43 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
+import bookstoreAPI from '../modules/bookstoreAPI';
 
-let bookId = 0;
+export const fetchBooksFromAPI = createAsyncThunk(
+  'books/fetchBooksFromAPI',
+  async () => {
+    const response = await bookstoreAPI.getBooks();
+    return response;
+  },
+);
+
+export const postBookToAPI = createAsyncThunk(
+  'books/postBookToAPI',
+  async (details) => {
+    const response = await bookstoreAPI.postBook(details);
+    return response;
+  },
+);
+
+export const removeBookFromAPI = createAsyncThunk(
+  'books/removeBookFromAPI',
+  async (itemId) => {
+    const response = await bookstoreAPI.removeBook(itemId);
+    return response;
+  },
+);
 
 const slice = createSlice({
   name: 'books',
   initialState: [],
-  reducers: {
-    bookAdded: (books, action) => {
-      bookId += 1;
-      books.push({ name: action.payload.name, author: action.payload.name, id: bookId });
-    },
-    bookRemoved: (books, action) => books.filter((book) => book.id !== action.payload.id),
+  extraReducers: (builder) => {
+    builder.addCase(
+      fetchBooksFromAPI.fulfilled,
+      (books, action) => action.payload,
+    );
+    builder.addCase(postBookToAPI.fulfilled, (books, action) => {
+      books.push(action.payload);
+    });
+    builder.addCase(removeBookFromAPI.fulfilled,
+      (books, action) => books.filter((book) => book.itemId !== action.payload));
   },
 });
 
