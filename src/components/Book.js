@@ -5,10 +5,7 @@ import { removeBookFromAPI } from '../store/books';
 
 const Book = ({ details }) => {
   const {
-    itemId,
-    title,
-    author,
-    category,
+    itemId, title, author, category,
   } = details;
 
   const dispatch = useDispatch();
@@ -19,23 +16,29 @@ const Book = ({ details }) => {
         <h3>{title}</h3>
         <p>{author}</p>
         <p>{category}</p>
-      </div>
-      <div className="book-interactions">
-        <button type="button">Comments</button>
-        <button type="button" onClick={() => dispatch(removeBookFromAPI({ itemId }))}>Remove</button>
-        <button type="button">Edit</button>
+        <div className="book-interactions">
+          <button type="button">Comments</button>
+          <button
+            type="button"
+            onClick={() => dispatch(removeBookFromAPI({ itemId }))}
+          >
+            Remove
+          </button>
+          <button type="button">Edit</button>
+        </div>
       </div>
       <div className="book-progress">
         <div className="book-progress-percentage">
-          <p>
-            percentage
-            %
-          </p>
-          <p>Completed</p>
+          <div className="Oval" />
+          <div className="book-progress-percentage-text">
+            <p>64%</p>
+            <p>Completed</p>
+          </div>
         </div>
+        <div className="vertical-seperator" />
         <div className="book-progress-position">
           <p>Current Chapter</p>
-          <p>currentChapter</p>
+          <p>Chapter 17</p>
           <button type="button">Update Progress</button>
         </div>
       </div>
