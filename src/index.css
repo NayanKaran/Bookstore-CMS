@@ -274,7 +274,6 @@ form > button {
 
 .book-progress-position > p:nth-child(1) {
   text-transform: uppercase;
-  width: 7.875rem;
   height: 1.125rem;
   opacity: 0.5;
   font-family: RobotoSlab, sans-serif;
@@ -284,7 +283,6 @@ form > button {
 }
 
 .book-progress-position > p:nth-child(2) {
-  width: 4.688rem;
   height: 1.313rem;
   font-family: RobotoSlab, sans-serif;
   font-size: 1rem;
@@ -337,6 +335,14 @@ form > button {
 
 .add-book > form > input::placeholder {
   height: 1.188rem;
+  font-family: Montserrat, sans-serif;
+  font-size: 1rem;
+  letter-spacing: -0.15px;
+  color: #c4c4c4;
+}
+
+.add-book > form > select:disabled {
+    height: 1.188rem;
   font-family: Montserrat, sans-serif;
   font-size: 1rem;
   letter-spacing: -0.15px;
