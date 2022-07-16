@@ -8,7 +8,7 @@ const Categories = () => {
   const dispatch = useDispatch();
 
   return (
-    <main>
+    <main id="categories">
       <p>{response}</p>
       <button type="button" onClick={() => dispatch(checkStatus())}>
         Check Status
