@@ -341,20 +341,20 @@ form > button {
   color: #c4c4c4;
 }
 
-.add-book > form > select:disabled {
-    height: 1.188rem;
-  font-family: Montserrat, sans-serif;
-  font-size: 1rem;
-  letter-spacing: -0.15px;
-  color: #c4c4c4;
-}
-
 .add-book > form > select {
   padding: 0.813rem;
   border-radius: 4px;
   border: solid 1px #e8e8e8;
   background-color: white;
   flex-grow: 1;
+}
+
+.add-book > form > select:disabled {
+  height: 1.188rem;
+  font-family: Montserrat, sans-serif;
+  font-size: 1rem;
+  letter-spacing: -0.15px;
+  color: #c4c4c4;
 }
 
 form > input:nth-child(1) {
