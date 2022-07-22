@@ -1,5 +1,5 @@
 # Bookstore-CMS
-An web app to manage a list of books.
+A web app to manage a list of books.
 
 ## Built With
 
